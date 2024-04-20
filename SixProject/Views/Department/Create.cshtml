@@ -1,0 +1,38 @@
+﻿@model SixProject.Models.ViewModels.DepartmentViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Add Department</h1>
+        <span class="display-2">@ViewBag.msg</span>
+        <div class="mb-2 d-flex justify-content-end">
+            <a asp-action="Index" asp-controller="Department" class="btn btn-primary">
+                <i class="fa fa-list-ul"></i>
+                View List
+            </a>
+        </div>
+        <form method="post" asp-action="Create" asp-controller="Department">
+            <div class="row mb-2">
+                <label asp-for="DepartmentName" class="col-2"></label>
+                <div class="col-6">
+                    <input type="text" asp-for="DepartmentName" class="form-control" />
+                </div>
+
+                <div class="col-4">
+                    <span asp-validation-for="DepartmentName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-2">
+                    <button type="submit" class="btn btn-success">Add Department</button>
+
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+</div>

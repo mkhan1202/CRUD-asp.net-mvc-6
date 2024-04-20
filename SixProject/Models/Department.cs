@@ -1,4 +1,6 @@
-﻿namespace SixProject.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SixProject.Models
 {
     public class Department
     {
@@ -7,7 +9,8 @@
             this.Students = new List<Student>();
         }
         public int DepartmentID { get; set; }
-        public string MyProperty { get; set; } = default!;
+        [Required(ErrorMessage ="Department name can't be blank"), StringLength(50), Display(Name ="Department Name:")]
+        public string DepartmentName { get; set; } = default!;
         public virtual ICollection<Student> Students { get; set; }
     }
 }

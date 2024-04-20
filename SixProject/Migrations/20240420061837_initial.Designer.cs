@@ -11,8 +11,8 @@ using SixProject.Data;
 namespace SixProject.Migrations
 {
     [DbContext(typeof(StudentDBContext))]
-    [Migration("20240418104849_Initial migration")]
-    partial class Initialmigration
+    [Migration("20240420061837_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,9 +31,10 @@ namespace SixProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"), 1L, 1);
 
-                    b.Property<string>("MyProperty")
+                    b.Property<string>("DepartmentName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("DepartmentID");
 
