@@ -1,0 +1,32 @@
+﻿@model SixProject.Models.ViewModels.SemesterViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Add Semester</h1>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-primary" asp-action="Index" asp-controller="Semester"><i class="fa fa-list-ul"> View Semester List</i></a>
+        </div>
+        <form asp-action="Create" asp-controller="Semester" method="post">
+            <div class="row mb-2">
+                <div class="col-2">
+                    <label class="col-form-label" asp-for="SemesterName"></label>
+                </div>
+                <div class="col-6">
+                    <input class="form-control" type="text" asp-for="SemesterName" />
+                </div>
+                <div class="col-4">
+                    <span asp-validation-for="SemesterName"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-2">
+                    <button type="submit" class="btn btn-success">Add Semester</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

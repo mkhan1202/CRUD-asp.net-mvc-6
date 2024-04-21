@@ -1,0 +1,32 @@
+﻿@model IEnumerable<SixProject.Models.Semester>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <h1>Semester List</h1>
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-info" asp-action="Create" asp-controller="Semester"><i class="fa fa-plus"></i> Add Semester</a>
+        </div>
+        <table class="table table-bordered table-striped table-responsive">
+            <thead class="table-info">
+                <tr>
+                    <th>@Html.DisplayNameFor(x=>x.SemesterID)</th>
+                    <th>@Html.DisplayNameFor(x=>x.SemesterName)</th>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+                @foreach(var i in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(x=>i.SemesterID)</td>
+                        <td>@Html.DisplayFor(x=>i.SemesterName)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+

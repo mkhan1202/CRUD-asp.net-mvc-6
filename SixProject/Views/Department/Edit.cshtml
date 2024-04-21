@@ -1,18 +1,31 @@
 ﻿@model SixProject.Models.ViewModels.DepartmentViewModel
+
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
 <div class="row">
     <div class="col">
-        <h1>Add Department</h1>
+        <h1>Edit Department</h1>
+        @if (ViewBag.msg != null)
+        {
+            <div class="alert alert-success display-6">@ViewBag.msg</div>
+        }
         <div class="mb-2 d-flex justify-content-end">
             <a asp-action="Index" asp-controller="Department" class="btn btn-primary">
                 <i class="fa fa-list-ul"></i>
                 View List
             </a>
         </div>
-        <form method="post" asp-action="Create" asp-controller="Department">
+        <form method="post" asp-action="Edit" asp-controller="Department">
+            <input asp-for="DepartmentID" type="hidden" />
+            <div class="row mb-2">
+                <label asp-for="DepartmentID" class="col-2"></label>
+                <div class="col-6">
+                    <input type="text" readonly asp-for="DepartmentID" class="form-control" />
+                </div>
+            </div>
+            
             <div class="row mb-2">
                 <label asp-for="DepartmentName" class="col-2"></label>
                 <div class="col-6">
@@ -25,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="col-3 offset-2">
-                    <button type="submit" class="btn btn-success">Add Department</button>
+                    <button type="submit" class="btn btn-success">Save</button>
 
                 </div>
             </div>
